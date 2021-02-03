@@ -3,6 +3,13 @@ This program takes user's input as per the conditions in the game.
 Follow the instructions and choose wisely to win the game else it's Game Over!
 """
 
+from time import perf_counter
+from time import process_time
+
+# Time Tracking Start
+tic1 = perf_counter()
+tic2 = process_time()
+
 print('''
 *******************************************************************************
           |                   |                  |                     |
@@ -55,3 +62,11 @@ if tunnel == 'left':
         print('You are eaten by a shark. Game Over!')
 else:
     print('You are eaten by a bear. Game Over!')
+
+# Time Tracking End
+toc1 = perf_counter()
+toc2 = process_time()
+
+print('\nExecution Time Details:')
+print(f'Total execution time including wait/sleep time: {round(toc1 - tic1, 2)}s')
+print(f'Total execution time excluding wait/sleep time: {round(toc2 - tic2, 2)}s')
