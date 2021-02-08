@@ -43,10 +43,13 @@ def caesar(action, input_text, shift_amount):
 
     # Add/Subtract the shift value to get the index from alphabets list
     for alphabet in input_text:
-        index = alphabets.index(alphabet)
-        new_index = index + shift_amount
-        new_alphabet = alphabets[new_index]
-        transformed_text += new_alphabet
+        if alphabet in alphabets:
+            index = alphabets.index(alphabet)
+            new_index = index + shift_amount
+            new_alphabet = alphabets[new_index]
+            transformed_text += new_alphabet
+        else:
+            transformed_text += alphabet
 
     # Print the result
     print(f'The {action}d text is {transformed_text}')
