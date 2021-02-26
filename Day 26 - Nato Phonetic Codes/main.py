@@ -1,8 +1,10 @@
 # Import required libraries
 import pandas as pd
+from art import logo
 
 
 def main():
+    print(logo)
     # Read the file
     df = pd.read_csv('nato_phonetic_alphabet.csv')
 
