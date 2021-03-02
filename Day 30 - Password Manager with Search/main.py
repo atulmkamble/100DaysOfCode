@@ -16,19 +16,14 @@ def find_password():
     :return: nothing
     """
     website = ent_website.get().title()
-    email = ent_email.get()
-    password = ent_password.get()
     try:
         with open('data.json', 'r') as f:
             data = json.load(f)
-            print(data)
             out_email = data[website]['email']
-            print(out_email)
             out_password = data[website]['password']
-            print(out_password)
     except FileNotFoundError:
         messagebox.showinfo(title='Oops', message='No Data File Found')
-    except KeyError:
+    except KeyError: # This can be handled in if..else block, used except for practice here
         messagebox.showinfo(title='Oops', message='No details for the website exists')
     else:
         messagebox.showinfo(title='Success',
