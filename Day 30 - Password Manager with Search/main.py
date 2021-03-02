@@ -126,7 +126,6 @@ ent_website.focus()
 ent_website.grid(column=1, row=1, sticky='ew')
 
 ent_email = tk.Entry(width=52)
-ent_email.insert(0, 'kambleatulm@gmail.com')
 ent_email.grid(column=1, row=2, columnspan=2)
 
 ent_password = tk.Entry(width=21)
