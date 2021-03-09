@@ -27,8 +27,7 @@ def create_user():
         'notMinor': 'yes'
     }
 
-    response = requests.post(url=PIXELA_ENDPOINT, json=user_params)
-    print(response.text)
+    requests.post(url=PIXELA_ENDPOINT, json=user_params)
 
 
 def create_graph():
@@ -46,45 +45,40 @@ def create_graph():
         'color': 'momiji',
     }
 
-    response = requests.post(url=GRAPH_ENDPOINT, json=graph_config, headers=HEADERS)
-    print(response.text)
+    requests.post(url=GRAPH_ENDPOINT, json=graph_config, headers=HEADERS)
 
 
-def create_pixel(input_date, input_quantity):
+def create_pixel(input_date):
     """
     Creates pixel for the input date with input quantity
     :param input_date: Creates pixel at this date
-    :param input_quantity: Creates pixel with this quantity
     :return: nothing
     """
     PIXEL_CREATION_ENDPOINT = f'{PIXELA_ENDPOINT}/{USER_NAME}/graphs/{GRAPH_ID}'
-
-    date_today = dt.now()
+    input_quantity = str(int(input('How many minutes did you code?: ')))
 
     pixel_config = {
         'date': input_date.strftime('%Y%m%d'),
         'quantity': input_quantity,
     }
 
-    response = requests.post(url=PIXEL_CREATION_ENDPOINT, json=pixel_config, headers=HEADERS)
-    print(response.text)
+    requests.post(url=PIXEL_CREATION_ENDPOINT, json=pixel_config, headers=HEADERS)
 
 
-def edit_pixel(input_date, input_quantity):
+def edit_pixel(input_date):
     """
     Edits pixel for the input date with input quantity
     :param input_date: Edits pixel at this date
-    :param input_quantity: Edits pixel with this quantity
     :return: nothing
     """
     PIXEL_EDIT_ENDPOINT = f'{PIXELA_ENDPOINT}/{USER_NAME}/graphs/{GRAPH_ID}/{input_date.strftime("%Y%m%d")}'
+    input_quantity = str(int(input('How many minutes did you code?: ')))
 
     pixel_edit = {
         'quantity': input_quantity
     }
 
-    response = requests.put(url=PIXEL_EDIT_ENDPOINT, json=pixel_edit, headers=HEADERS)
-    print(response.text)
+    requests.put(url=PIXEL_EDIT_ENDPOINT, json=pixel_edit, headers=HEADERS)
 
 
 def delete_pixel(input_date):
@@ -100,11 +94,11 @@ def delete_pixel(input_date):
 
 
 def main():
-    # create_user()
-    # create_graph()
-    create_pixel(dt(year=2021, month=3, day=7), '90')
-    # edit_pixel(dt(year=2021, month=3, day=8), '90')
-    # delete_pixel(dt(year=2021, month=3, day=8))
+    create_user()
+    create_graph()
+    create_pixel(dt.now())
+    # edit_pixel(dt.now()))
+    # delete_pixel(dt.now())
 
 
 if __name__ == '__main__':
