@@ -1,8 +1,9 @@
 import requests
 
-SHEETY_ENDPOINT = '' # TODO: Add your Google Sheets API
-USERNAME = '' # TODO: Add your username
-PASSWORD = '' # TODO: Add your password
+# TODO: Add your Google Sheets API details
+SHEETY_ENDPOINT = ''
+USERNAME = ''
+PASSWORD = ''
 
 
 class DataManager:

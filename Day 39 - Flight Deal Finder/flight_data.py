@@ -1,7 +1,3 @@
-SEARCH_API_ENDPOINT = 'https://tequila-api.kiwi.com/search'
-API_KEY = '' # TODO: Add API Key
-
-
 class FlightData:
     def __init__(self, price, origin_city, origin_airport, destination_city, destination_airport, out_date,
                  return_date):

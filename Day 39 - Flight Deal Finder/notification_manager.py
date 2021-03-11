@@ -1,6 +1,6 @@
 from twilio.rest import Client
 
-# TODO: Add your Twilio details below
+# TODO: Add your Twilio details
 TWILIO_SID = ''
 TWILIO_AUTH_TOKEN = ''
 TWILIO_VIRTUAL_NUMBER = ''
