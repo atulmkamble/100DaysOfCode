@@ -60,7 +60,7 @@ def main():
         # After 5 minutes, stop the bot and check cookies per second count
         if time() > five_minutes:
             cookie_per_second = driver.find_element_by_id('cps').text
-            # print(cookie_per_second)
+            print(cookie_per_second)
             # Quit after 5 minutes
             break
 
