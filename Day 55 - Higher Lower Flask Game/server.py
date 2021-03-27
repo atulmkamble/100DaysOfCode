@@ -14,7 +14,7 @@ def guess_number():
 
 @app.route('/guess/<int:number>')
 def user_guess(number):
-    print(f'<h1>The guess is: {guess}</h1>')
+    # print(f'The guess is: {guess}')
     if number < guess:
         return '<h1 style="color: purple">Too low, try again!</h1>' \
                '<img src="https://media.giphy.com/media/jD4DwBtqPXRXa/giphy.gif">'
