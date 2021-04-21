@@ -33,5 +33,31 @@ class Cafe(db.Model):
 def home():
     return render_template("index.html")
 
+
+@app.route('/random', methods=['GET'])
+def get_random_cafe():
+    cafes = db.session.query(Cafe).all()
+    random_cafe = random.choice(cafes)
+    return jsonify(cafe=random_cafe.to_dict())
+    # return jsonify(
+    #     cafe={
+    #         # Omit the id from the response
+    #         # 'id': random_cafe.id,
+    #         'name': random_cafe.name,
+    #         'map_url': random_cafe.map_url,
+    #         'location': random_cafe.location,
+
+    #         # Make some properties as sub-category
+    #         "amenities": {
+    #             'seats': random_cafe.seats,
+    #             'has_toilet': random_cafe.has_toilet,
+    #             'has_wifi': random_cafe.has_wifi,
+    #             'has_sockets': random_cafe.has_sockets,
+    #             'can_take_calls': random_cafe.can_take_calls,
+    #             'coffee_price': random_cafe.coffee_price,
+    #         }
+    #     }
+    # )
+
 if __name__ == '__main__':
     app.run(debug=True)
